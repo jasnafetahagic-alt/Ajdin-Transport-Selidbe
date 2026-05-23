@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajdin Transport Selidbe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f4f7fb;
+      color:#222;
+      line-height:1.7;
+    }
+
+    header{
+      background:#1c80bb;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar{
+      max-width:1300px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      color:white;
+      font-weight:700;
+      font-size:1.2rem;
+    }
+
+    .logo img{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid white;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      border-left:1px solid rgba(255,255,255,0.7);
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      padding:0 22px;
+      height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav a:hover{
+      opacity:0.8;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      width:1px;
+      height:24px;
+      background:rgba(255,255,255,0.7);
+    }
+
+    .hero{
+      min-height:75vh;
+      background:url('https://scontent.fsjj2-1.fna.fbcdn.net/v/t39.30808-6/671657206_122095310072690742_8021473194435338363_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=uNJx1yXSkl0Q7kNvwFseic8&_nc_oc=AdoXyHDf0EWTUl19oFkS79Vs7OUZfKRq1M4bkwFyEWQnCZ_j-xGdLt8fpooHUREJgqW97930AOcN1M977W9vG7Zn&_nc_zt=23&_nc_ht=scontent.fsjj2-1.fna&_nc_gid=GuQVHJWJmuDyHqzpU3JW0Q&_nc_ss=7b2a8&oh=00_Af61YOv_r0lDGjGX-sTk1rgnAgGc44UzJQcr69X4uyPOWg&oe=6A1641FF');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .about-section{
+      background:white;
+      padding:80px 20px;
+    }
+
+    .about-container{
+      max-width:1100px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-container h2{
+      color:#1c80bb;
+      font-size:2.8rem;
+      margin-bottom:30px;
+    }
+
+    .about-container p{
+      font-size:1.1rem;
+      color:#444;
+      margin-bottom:18px;
+      line-height:1.9;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      background:#1c80bb;
+      color:white;
+      padding:14px 30px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#166892;
+      transform:translateY(-2px);
+    }
+
+    section{
+      padding:90px 20px;
+    }
+
+    .container{
+      max-width:1300px;
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.8rem;
+      margin-bottom:20px;
+      color:#1c80bb;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:850px;
+      margin:auto auto 60px auto;
+      color:#666;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .service-card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      transition:0.35s;
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .service-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .service-content{
+      padding:25px;
+    }
+
+    .service-content h3{
+      color:#1c80bb;
+      margin-bottom:15px;
+      font-size:1.35rem;
+    }
+
+    .reviews-section{
+      background:white;
+    }
+
+    .reviews-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+      margin-bottom:50px;
+    }
+
+    .review-card{
+      background:#f4f7fb;
+      padding:25px;
+      border-radius:18px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .review-card strong{
+      color:#1c80bb;
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .review-form,
+    .contact-form{
+      background:white;
+      padding:40px;
+      border-radius:20px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      max-width:850px;
+      margin:auto;
+    }
+
+    .form-group{
+      margin-bottom:20px;
+    }
+
+    input,
+    textarea,
+    select{
+      width:100%;
+      padding:15px;
+      border:1px solid #dcdcdc;
+      border-radius:12px;
+      font-size:1rem;
+      font-family:inherit;
+    }
+
+    textarea{
+      resize:vertical;
+    }
+
+    button{
+      background:#1c80bb;
+      color:white;
+      border:none;
+      padding:15px 30px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#166892;
+    }
+
+    .contact-info{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .contact-card{
+      background:white;
+      padding:30px;
+      border-radius:18px;
+      text-align:center;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .contact-card i{
+      font-size:2.2rem;
+      color:#1c80bb;
+      margin-bottom:15px;
+    }
+
+    .contact-card a{
+      text-decoration:none;
+      color:#333;
+      word-break:break-word;
+    }
+
+    footer{
+      background:#1c80bb;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+      margin-top:80px;
+    }
+
+    @media(max-width:900px){
+
+      nav{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="navbar">
+
+    <div class="logo">
+      <img src="https://scontent.fsjj2-1.fna.fbcdn.net/v/t1.15752-9/674618377_909107885621652_5099632514881566482_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=fc17b8&_nc_ohc=tYvOWe12bb8Q7kNvwHN29Gb&_nc_oc=AdrDjweu3RFXwGaaObEZwF2cuc_8ywV1UOCwrxYSeCyLu7-i7ghPTnxYurlr6gHnKj89PsDwE6W5UbnxsQoFkNM_&_nc_zt=23&_nc_ht=scontent.fsjj2-1.fna&_nc_ss=7b6a8&oh=03_Q7cD5QEJZULrD5CbMT2kAAPF9VY4nqL2Ms7DOt-LL8-FLX4VrQ&oe=6A387BB6" alt="Ajdin Logo">
+      <span>Ajdin Transport Selidbe</span>
+    </div>
+
+    <nav>
+      <a href="#home">Početna</a>
+      <a href="#about">O Nama</a>
+      <a href="#services">Naše Usluge</a>
+      <a href="#contact-form">Kontakt</a>
+    </nav>
+
+  </div>
+
+</header>
+
+<section class="hero" id="home"></section>
+
+<section class="about-section" id="about">
+
+  <div class="about-container">
+    <h2>O NAMA</h2>
+
+    <p>Ajdin Transport Selidba pruža pouzdane usluge prijevoza i selidbi za privatne i poslovne klijente.</p>
+
+    <p>Fokusirani smo na sigurnost tereta, točnost i profesionalan pristup - od prvog dogovora do istovara na lokaciji.</p>
+
+    <p>Bilo da selite stan, kuću ili ured, organiziramo sve korake: planiranje, zaštitu namještaja, utovar, prijevoz i istovar.</p>
+
+    <p>Naš cilj je da vaša selidba prođe brzo i uredno, uz jasnu komunikaciju i fer cijene.</p>
+
+    <p>Radimo fleksibilno, prema vašem rasporedu i potrebama.</p>
+
+    <a href="#contact-form" class="btn">Kontaktirajte Nas</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Naše Usluge</h2>
+    <p class="section-subtitle">Profesionalne usluge transporta, selidbi i adaptacijskih radova uz sigurnost, kvalitetu i maksimalnu organizaciju.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="https://i.pinimg.com/736x/61/34/a7/6134a7c28c9a7e32d2eed15a91381653.jpg" alt="Selidbe">
+        <div class="service-content">
+          <h3>Selidbe veće i manje</h3>
+          <p>Selidbe veće i manje realiziramo brzo, 
+sigurno i organizirano - od garsonijera do velikih stanova, 
+kuća i poslovnih prostora. Nudimo kompletan prijevoz, 
+pažljivo rukovanje stvarima te opciju pomoći pri utovaru i istovaru, uz dogovor termina koji vam najviše odgovara.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img  src="https://i.pinimg.com/736x/83/fa/1b/83fa1bdcabd3ad650b00b4850c9e1d1a.jpg" alt="Otpad">
+        <div class="service-content">
+          <h3>Odvoz kabastog otpada</h3>
+          <p>Naš tim osigurava učinkovit utovar i prijevoz glomaznih predmeta te odvoz na odgovarajuće odlagalište, 
+u skladu s važećim pravilima.
+ Usluga je namijenjena klijentima koji žele brzo osloboditi prostor uz pouzdanu transportnu podršku.
+</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://media.istockphoto.com/id/2211012747/photo/close-up-of-a-large-round-vault-door-with-locking-mechanism-secured-on-metal-wall.jpg?s=612x612&w=0&k=20&c=ZhldJAFw7XUGWNeEaCEKI7R_W4uiMPWzY0F8TfVj7TI=" alt="Sefovi">
+        <div class="service-content">
+          <h3>Prijevoz sefova ( s radnom snagom )</h3>
+          <p>Prijevoz sefova s radnom snagom u sklopu usluge obuhvata sigurno preuzimanje, nošenje i transport sefova svih dimenzija. Koristimo odgovarajuću opremu i provjerene metode kako bi se osigurala maksimalna zaštita 
+imovine i prostora tokom cijelog procesa.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/736x/97/3e/56/973e569d08238b661284bb843687997f.jpg" alt="Šuta">
+        <div class="service-content">
+          <h3>Odvoz šute</h3>
+          <p>Nudimo odvoz šute s radnom snagom za brzo i sigurno uklanjanje otpada nakon adaptacija, renovacija ili rušenja.  Naš tim dolazi na lokaciju, obavlja utovar i organizira prijevoz do ovlaštenog odlagališta, uz maksimalnu učinkovitost i urednost prostora.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i.pinimg.com/736x/fc/ae/a0/fcaea0b6a329f63ae1cfd4346f7c6365.jpg" alt="Poslovni prostor">
+        <div class="service-content">
+          <h3>Selidbe poslovnih prostora</h3>
+          <p>Za selidbe poslovnih prostora izvodimo strukturiran proces: procjenu, plan selidbe, pakiranje, prijevoz te raspored i instalaciju namještaja i opreme. 
+Radimo prema dogovorenom terminu, uz fokus na sigurnost tereta i kontinuitet poslovanja.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/1200x/fe/5b/75/fe5b75621410da642c16514e1102d34b.jpg" alt="Čišćenje">
+        <div class="service-content">
+          <h3>Čišćenje podruma, tavana i garaža</h3>
+          <p>Pružamo kompletno čišćenje podruma, podruma i garaža s naglaskom na sigurnost, učinkovitost i transportnu podršku. Organiziramo odvoz i prijevoz iznesenih predmeta te pomažemo u oslobađanju prostora bez nepotrebnog zadržavanja.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://media.istockphoto.com/id/119749000/photo/raised-flooring.jpg?s=612x612&w=0&k=20&c=F0Rs7-8qyxf4bp3kiZue3c_PyR2Chi93LQBa28sUSRw=" alt="Podovi">
+        <div class="service-content">
+          <h3>Dizanje podova</h3>
+          <p>Pružamo profesionalno podizanje podova u stambenim i poslovnim prostorima, prilagođeno zahtjevima projekta i logistike. Koristimo provjerene metode i opremu kako bismo postigli stabilnu podlogu, smanjili rizik od oštećenja te omogućili učinkovitu organizaciju daljnjih transportnih i selidbenih aktivnosti.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://linea.io/wp-content/uploads/2019/10/remove-ceramic-tiles-1.jpg" alt="Pločice">
+        <div class="service-content">
+          <h3>Skidanje pločica</h3>
+          <p>U okviru naših usluga nudimo profesionalno skidanje pločica uz sigurno prikupljanje i iznošenje šute. 
+Organiziramo utovar i odvoz materijala prema dogovoru, kako biste dobili čist i spreman prostor bez dodatnih komplikacija.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/1200x/18/fd/2f/18fd2f53504651fda29e797101f1e86a.jpg" alt="Stolarija">
+        <div class="service-content">
+          <h3>Demontaža stolarije</h3>
+          <p>Nudimo demontažu stolarije kao pouzdanu pripremu za selidbu i prijevoz. Pažljivo rastavljamo elemente stolarije te ih po potrebi adekvatno označavamo i pripremamo za ponovnu montažu, kako bi transport bio učinkovit i bez oštećenja. Profesionalna izvedba i sigurnost tokom rukovanja ključ su ove usluge.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/1200x/bb/ed/81/bbed8135edbee2ae3660c5f03368cda9.jpg" alt="Rušenje zidova">
+        <div class="service-content">
+          <h3>Rušenje zidova</h3>
+          <p>Rušenje zidova u sklopu izvodimo brzo, sigurno i u skladu s pravilima struke. Prije početka radova procjenjujemo stanje objekta, štitimo okolne površine te osiguravamo uredno izvođenje uz minimalnu buku i prašinu. 
+Idealno rješenje za pripremu prostora prije selidbe, adaptacije ili renovacije.</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/1200x/e4/07/98/e40798d99791a9c2f8ad7bffef914a3c.jpg" alt="Stare stvari">
+        <div class="service-content">
+          <h3>Odvoz starih stvari</h3>
+          <p>Odvoz starih i nepotrebnih stvari organiziran je brzo i pouzdano, bez nepotrebnog opterećenja za vas. Nudimo preuzimanje iz stanova, kuća, podruma i poslovnih prostora te siguran transport do odgovarajućeg odlagališta. Fokusirani smo na tačnost, urednost i profesionalan pristup.
+</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <img src="https://i1-c.pinimg.com/1200x/e5/9b/57/e59b57973d53d51b396b7e42a65cba0a.jpg" alt="Prijevoz">
+        <div class="service-content">
+          <h3>Prijevoz do 6 metara dužine</h3>
+          <p>Profesionalan prijevoz tereta i do 6 m dužine na području grada i šire, prilagođen rokovima i zahtjevima klijenata. Nudimo učinkovitu logistiku i urednu isporuku uz fokus na sigurnost tereta bilo da se radi o namještaju, građevinskom materijalu ili većim predmetima.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section class="reviews-section">
+
+  <div class="container">
+
+    <section class="reviews-section">
+
+  <div class="container">
+
+    <div class="review-form">
+
+      <h3 style="margin-bottom:25px; color:#1c80bb; text-align:center;">
+        Ostavite Vašu Recenziju
+      </h3>
+
+      <form id="reviewForm">
+
+        <div class="form-group">
+          <input type="text" id="reviewName" placeholder="Vaše ime i prezime" required>
+        </div>
+
+        <div class="form-group">
+          <select id="reviewRating" required>
+            <option value="">Odaberite ocjenu</option>
+            <option value="⭐">1 Zvijezdica</option>
+            <option value="⭐⭐">2 Zvijezdice</option>
+            <option value="⭐⭐⭐">3 Zvijezdice</option>
+            <option value="⭐⭐⭐⭐">4 Zvijezdice</option>
+            <option value="⭐⭐⭐⭐⭐">5 Zvijezdica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea id="reviewMessage" rows="5" placeholder="Napišite recenziju..." required></textarea>
+        </div>
+
+        <button type="submit">Pošalji Recenziju</button>
+
+      </form>
+
+      <div id="reviewList">
+
+        <div class="review-card">
+  <strong>Miralem Fetahagić - ⭐⭐⭐⭐⭐</strong>
+  <p>
+    Odlična ekipa, zvati ću ih opet.
+  </p>
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+#reviewList{
+  margin-top:40px;
+}
+
+.review-card{
+  background:#ffffff;
+  padding:25px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,0.10);
+  border:1px solid #e5e5e5;
+}
+
+.review-card strong{
+  display:block;
+  color:#1c80bb;
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.review-card p{
+  color:#333333;
+  font-size:16px;
+  line-height:1.7;
+}
+
+</style>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+#reviewList{
+  margin-top:40px;
+}
+
+.review-card{
+  background:#ffffff;
+  padding:25px;
+  border-radius:18px;
+  margin-bottom:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,0.10);
+  border:1px solid #e5e5e5;
+}
+
+.review-card strong{
+  display:block;
+  color:#1c80bb;
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.review-card p{
+  color:#333333;
+  font-size:16px;
+  line-height:1.7;
+}
+
+</style>
+</style>
+
+<style>
+
+.contact-info{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+  margin-top:50px;
+}
+
+.contact-card{
+  width:100%;
+  max-width:420px;
+  min-height:110px;
+
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+
+  text-align:center;
+
+  transition:0.25s ease;
+}
+
+.contact-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.15);
+}
+
+.contact-card i{
+  font-size:2rem;
+  color:#1c80bb;
+  min-width:40px;
+}
+
+.contact-text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.contact-text h3{
+  margin:0;
+  font-size:18px;
+}
+
+.contact-text p,
+.contact-text a{
+  margin-top:5px;
+  color:#333;
+  text-decoration:none;
+  word-break:break-word;
+}
+
+</style>
+
+<div class="contact-info" id="contact-form">
+
+  <div class="contact-card">
+    <i class="fa-solid fa-phone"></i>
+    <div class="contact-text">
+      <h3>Telefon</h3>
+      <p>061 605 836</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-brands fa-viber"></i>
+    <div class="contact-text">
+      <h3>Viber</h3>
+      <p>060 33 22 288</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-envelope"></i>
+    <div class="contact-text">
+      <h3>Email</h3>
+      <a href="mailto:kpsajdin@gmail.com">kpsajdin@gmail.com</a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-brands fa-facebook"></i>
+    <div class="contact-text">
+      <h3>Facebook</h3>
+      <a href="https://www.facebook.com/profile.php?id=61570722266187" target="_blank">
+        Posjetite Facebook
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-brands fa-instagram"></i>
+    <div class="contact-text">
+      <h3>Instagram</h3>
+      <a href="https://www.instagram.com/kombiprevozajdin" target="_blank">
+        @kombiprevozajdin
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <i class="fa-solid fa-location-dot"></i>
+    <div class="contact-text">
+      <h3>Adresa</h3>
+      <a href="https://www.google.com/maps/search/?api=1&query=Prof.+Dr.+Ramiza+Velića+68,+Sarajevo,+Bosna+i+Hercegovina" target="_blank">
+        Prof. Dr. Ramiza Velića 68,<br>
+        Sarajevo, Bosna i Hercegovina
+      </a>
+    </div>
+  </div>
+
+</div>
+    -
+
+<footer>
+  <p>© 2026 Ajdin Transport Selidbe | Profesionalne selidbe i transport</p>
+</footer>
+
+<script>
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewList = document.getElementById('reviewList');
+
+  reviewForm.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById('reviewName').value;
+    const rating = document.getElementById('reviewRating').value;
+    const message = document.getElementById('reviewMessage').value;
+
+    addReview(name, rating, message);
+
+    reviewForm.reset();
+
+  });
+
+  function addReview(name, rating, message) {
+
+    const div = document.createElement('div');
+
+    div.classList.add('review-card');
+
+    div.innerHTML = `
+      <strong>${name} - ${rating}</strong>
+      <p>${message}</p>
+    `;
+
+    reviewList.prepend(div);
+
+  }
+</script>
+
+</body>
+</html>
